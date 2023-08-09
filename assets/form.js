@@ -1,41 +1,28 @@
-function validateForm() {
-    // Obtener los valores de los campos del formulario
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var subject = document.getElementById('subject').value;
-    var message = document.getElementsByName('message')[0].value;
+(function(){
+  emailjs.init("s7dOAnnJ9TglWiKBc");
+})();
 
-    // Validar los campos (puedes agregar más validaciones según tus necesidades)
-    if (name.trim() === '') {
-      alert('Por favor, ingrese su nombre');
-      return false;
-    }
-    
-    if (email.trim() === '') {
-      alert('Por favor, ingrese su correo electrónico');
-      return false;
-    }
+window.onload = function() {
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+       
+      this.contact_number.value = Math.random() * 100000 | 0;
 
-    if (subject.trim() === '') {
-      alert('Por favor, ingrese el asunto');
-      return false;
-    }
-    
-    if (message.trim() === '') {
-      alert('Por favor, ingrese su mensaje');
-      return false;
-    }
+      var form = this; // Guardamos una referencia al formulario
 
-    // Enviar el formulario por correo electrónico
-    var form = document.getElementsByClassName('email-form')[0];
-    var formData = new FormData(form);
+      // these IDs from the previous steps
+      emailjs.sendForm('contact_service', 'contact_form', this)
+          .then(function() {
+              console.log('SUCCESS!');
 
-    // Agrega el código para enviar el formulario por correo electrónico aquí
-    // Puedes utilizar una biblioteca de envío de formularios o una API de correo electrónico
-
-    // Mostrar el mensaje de éxito y limpiar el formulario
-    document.getElementsByClassName('sent-message')[0].style.display = 'block';
-    form.reset();
-
-    return false; // Evitar que el formulario se envíe mediante la acción predeterminada
-  }
+      // Limpiamos el formulario
+        form.reset();
+        
+        // Mostramos el alert
+        alert('Gracias por escribir, pronto me pondré en contacto.');
+        
+          }, function(error) {
+              console.log('FAILED...', error);
+          });
+  });
+};
