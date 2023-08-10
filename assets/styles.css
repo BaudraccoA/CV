@@ -258,6 +258,10 @@ body {
   .section-title p {
     margin-bottom: 0;
   }
+
+  .soft {
+    list-style: square;
+  }
   
   /*--------------------------------------------------------------
   # About
@@ -381,6 +385,7 @@ body {
     transition: 0.9s;
     background-color: #149ddd;
   }
+  
   
   /*--------------------------------------------------------------
   # Resume
