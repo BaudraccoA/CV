@@ -36,7 +36,7 @@ El proyecto se puede descargar desde el repositorio de Github, en BaudraccoA/CV 
 
  :unlock: abre y ejecuta el proyecto  :unlock:
  
-baudraccoa.github.io/CV/index.html
+https://baudraccoa.github.io/CV/index.html
  
 
 
